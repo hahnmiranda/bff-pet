@@ -1,0 +1,64 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.bff-pet'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// dev
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// data-base
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.hibernate:hibernate-core:6.2.0.Final'
+	implementation 'mysql:mysql-connector-java:8.0.33'
+	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-mysql'
+
+
+	// python on java
+	implementation 'black.ninia:jep:4.1.1'
+
+	// auto-doc
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+
+	// pdf transcription
+	implementation 'org.apache.pdfbox:pdfbox:2.0.29'
+
+	// opcional para simplificar o uso de hashes
+	implementation 'commons-codec:commons-codec:1.16.0'
+
+	// json em objeto
+	implementation 'jakarta.json:jakarta.json-api:2.0.1'
+	implementation 'org.glassfish:jakarta.json:2.0.1'
+	implementation 'org.eclipse:yasson:3.0.2'
+
+	// test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+	testImplementation 'org.mockito:mockito-core:5.5.0'
+
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
