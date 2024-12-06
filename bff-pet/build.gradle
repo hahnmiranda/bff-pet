@@ -40,9 +40,6 @@ dependencies {
 	// auto-doc
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 
-	// pdf transcription
-	implementation 'org.apache.pdfbox:pdfbox:2.0.29'
-
 	// opcional para simplificar o uso de hashes
 	implementation 'commons-codec:commons-codec:1.16.0'
 
